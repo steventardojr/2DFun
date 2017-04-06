@@ -34,35 +34,29 @@ public class PlaneScript : MonoBehaviour {
             CreatePlanarGrid(playerGridPosition);
         }
 
-
-        
-
-        //if
-
-
     }
 
 	public Mesh CreateMesh(float x, float y, float z, float size)
 	{
-		Mesh m = new Mesh();
-		m.name = "ScriptedMesh";
+		Mesh mesh = new Mesh();
+		mesh.name = "ScriptedMesh";
         
-		m.vertices = new Vector3[] {
+		mesh.vertices = new Vector3[] {
 			new Vector3((size / 2) + x * size, y, (size / 2) + z * size),
 			new Vector3((size / 2) + x * size, y, (size / 2) + (z - 1) * size),
             new Vector3((size / 2) + (x - 1) * size, y, (size / 2) + (z - 1) * size),
             new Vector3((size / 2) + (x - 1) * size, y, (size / 2) + z * size)
         };
-		m.uv = new Vector2[] {
+		mesh.uv = new Vector2[] {
 			new Vector2 (0, 0),
 			new Vector2 (0, 1),
 			new Vector2(1, 1),
 			new Vector2 (1, 0)
 		};
-		m.triangles = new int[] { 0, 1, 2, 0, 2, 3};
-		m.RecalculateNormals();
+		mesh.triangles = new int[] { 0, 1, 2, 0, 2, 3};
+		mesh.RecalculateNormals();
 
-		return m;
+		return mesh;
 	}
 
 	public GameObject CreatePlane (float x, float y, float z, float size)
@@ -90,8 +84,6 @@ public class PlaneScript : MonoBehaviour {
     public Vector3 GetGridPosition (Vector3 position, float gridSize)
     {
         Vector3 gridPosition = new Vector3(Mathf.Round(position.x / gridSize), 0.0f, Mathf.Round(position.z / gridSize));
-        
-
         return gridPosition;
     }
 

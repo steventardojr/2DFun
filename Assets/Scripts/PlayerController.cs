@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour {
 
 	public Vector3 GetPlayerPosition ()
 	{
-		
-		return player.transform.position;
+        return player.transform.position;
 	}
 }
